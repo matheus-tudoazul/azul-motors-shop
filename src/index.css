@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -98,6 +92,41 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom styles for Tudo Azul Motors */
+@layer components {
+  .btn-primary {
+    @apply bg-[#0485e0] hover:bg-[#063f5c] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#063f5c] hover:bg-[#0485e0] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .text-brand-primary {
+    @apply text-[#063f5c];
+  }
+  
+  .text-brand-secondary {
+    @apply text-[#0485e0];
+  }
+  
+  .bg-brand-primary {
+    @apply bg-[#063f5c];
+  }
+  
+  .bg-brand-secondary {
+    @apply bg-[#0485e0];
+  }
+  
+  .gradient-brand {
+    @apply bg-gradient-to-r from-[#063f5c] to-[#0485e0];
   }
 }
