@@ -18,45 +18,45 @@ const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
   const products: Product[] = [
     {
       id: 1,
-      name: "Shineray Phoenix 150",
+      name: "Shineray SHI 175 EFI Trail",
       price: 12990,
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Moto esportiva ideal para cidade"
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Cores-SHI-175-1.webp",
+      description: "Moto trail ideal para aventuras"
     },
     {
       id: 2,
-      name: "Shineray Adventure 200",
-      price: 15990,
-      image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Perfeita para aventuras off-road"
+      name: "Shineray Flash 250F",
+      price: 18990,
+      image: "https://www.motoremacao.com.br/uploads/images/2025/01/shineray-250f-flash-2025-a-street-chinesa-que-promete-revolucionar-o-segmento-250-cc-dd89e.jpg",
+      description: "Street 250cc moderna e potente"
     },
     {
       id: 3,
-      name: "Shineray Sport 150",
+      name: "Shineray Phoenix S EFI",
       price: 13990,
-      image: "https://images.unsplash.com/photo-1609893700968-3b48a83dba18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Design moderno e performance"
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Phoenix-S-EFI-1.webp",
+      description: "Design esportivo e performance"
     },
     {
       id: 4,
-      name: "Shineray Classic 125",
-      price: 9990,
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      name: "Shineray JEF 150 S EFI",
+      price: 11990,
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/JEF-150S-EFI-1.webp",
       description: "Econômica e confiável"
     },
     {
       id: 5,
-      name: "Shineray Cruiser 250",
-      price: 18990,
-      image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Conforto para longas viagens"
+      name: "Shineray Jet 125 SS",
+      price: 9990,
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Jet-125-SS-1.webp",
+      description: "Ideal para o dia a dia urbano"
     },
     {
       id: 6,
-      name: "Shineray Urban 150",
-      price: 11990,
-      image: "https://images.unsplash.com/photo-1609893700968-3b48a83dba18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Ideal para o trânsito urbano"
+      name: "Shineray Storm 200 EFI",
+      price: 15990,
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Storm-200-EFI-1.webp",
+      description: "Potência e estilo para longas viagens"
     }
   ];
 

@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center">
                 <MapPin size={16} className="mr-2 text-[#0485e0]" />
-                <span className="text-sm text-gray-300">Rua das Motos, 123 - Centro</span>
+                <span className="text-sm text-gray-300">R. Primeiro de Maio, 632 - Centro</span>
               </div>
               <div className="flex items-center">
                 <Phone size={16} className="mr-2 text-[#0485e0]" />
@@ -36,7 +36,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail size={16} className="mr-2 text-[#0485e0]" />
-                <span className="text-sm text-gray-300">contato@tudoazulmotors.com.br</span>
+                <span className="text-sm text-gray-300">motors@grupotudoazul.com.br</span>
               </div>
             </div>
           </div>

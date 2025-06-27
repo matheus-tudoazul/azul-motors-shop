@@ -26,7 +26,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#063f5c] mb-1">Endereço</h4>
-                    <p className="text-gray-600">Rua das Motos, 123<br />Centro - Sua Cidade, Estado<br />CEP: 12345-678</p>
+                    <p className="text-gray-600">R. Primeiro de Maio, 632<br />Centro - João Lisboa, MA<br />CEP: 65922-000</p>
                   </div>
                 </div>
 
@@ -36,7 +36,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#063f5c] mb-1">Telefones</h4>
-                    <p className="text-gray-600">(99) 9827-8034<br />(99) 3456-7890</p>
+                    <p className="text-gray-600">(99) 9827-8034</p>
                   </div>
                 </div>
 
@@ -56,7 +56,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#063f5c] mb-1">Email</h4>
-                    <p className="text-gray-600">contato@tudoazulmotors.com.br</p>
+                    <p className="text-gray-600">motors@grupotudoazul.com.br</p>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,8 @@ const Contact = () => {
               <div className="text-center">
                 <MapPin size={48} className="text-[#0485e0] mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-[#063f5c] mb-2">Localização</h3>
-                <p className="text-gray-600">Visite nossa loja física</p>
+                <p className="text-gray-600">R. Primeiro de Maio, 632</p>
+                <p className="text-gray-600">Centro - João Lisboa, MA</p>
               </div>
             </div>
           </div>
