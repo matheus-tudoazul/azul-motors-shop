@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { User, Calendar, CreditCard, Phone, MapPin, Mail, DollarSign, Car } from 'lucide-react';
 
@@ -33,6 +32,13 @@ const Simulator: React.FC<SimulatorProps> = ({ onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Gerar mensagem para o WhatsApp do consórcio
+    const message = `Olá, gostaria de simular um consórcio para moto Shineray.\n\nDados pessoais:\nNome: ${formData.fullName}\nNascimento: ${formData.birthDate}\nCPF: ${formData.cpf}\nTelefone: ${formData.phone}\nEndereço: ${formData.address}\nEmail: ${formData.email}\nRenda: ${formData.monthlyIncome}${formData.downPayment ? `\nEntrada: ${formData.downPayment}` : ''}\nHabilitado: ${formData.hasLicense ? 'Sim' : 'Não'}`;
+    
+    const whatsappUrl = `https://wa.me/5599985381946?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
     onSubmit(formData);
   };
 
@@ -57,9 +63,9 @@ const Simulator: React.FC<SimulatorProps> = ({ onSubmit }) => {
     <section id="simulador" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#063f5c] mb-4">Simulador de Compra</h2>
+          <h2 className="text-4xl font-bold text-[#063f5c] mb-4">Simulador de Consórcio</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Preencha seus dados para simular o financiamento da sua moto dos sonhos
+            Preencha seus dados para simular o consórcio da sua moto dos sonhos
           </p>
         </div>
 
@@ -230,7 +236,7 @@ const Simulator: React.FC<SimulatorProps> = ({ onSubmit }) => {
                 type="submit"
                 className="w-full bg-[#0485e0] hover:bg-[#063f5c] text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
               >
-                Simular Financiamento
+                Simular Consórcio
               </button>
             </div>
           </form>

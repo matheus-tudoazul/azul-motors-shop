@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Plus } from 'lucide-react';
 
@@ -34,28 +33,35 @@ const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
       id: 3,
       name: "Shineray Phoenix S EFI",
       price: 13990,
-      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Phoenix-S-EFI-1.webp",
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/08/Phoenix-S-EFI-Cor-3.webp",
       description: "Design esportivo e performance"
     },
     {
       id: 4,
       name: "Shineray JEF 150 S EFI",
       price: 11990,
-      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/JEF-150S-EFI-1.webp",
+      image: "https://www.shineray.com.br/wp-content/uploads/2024/02/JEF-150s-EFI-1.webp",
       description: "Econômica e confiável"
     },
     {
       id: 5,
       name: "Shineray Jet 125 SS",
       price: 9990,
-      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Jet-125-SS-1.webp",
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/JET-125-SS-Cores-1.webp",
       description: "Ideal para o dia a dia urbano"
     },
     {
       id: 6,
+      name: "Shineray Jet 50 S",
+      price: 7990,
+      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Banner-Principal-JET-50S.webp",
+      description: "Entrada no mundo das motos"
+    },
+    {
+      id: 7,
       name: "Shineray Storm 200 EFI",
       price: 15990,
-      image: "https://www.shineray.com.br/wp-content/uploads/2023/06/Storm-200-EFI-1.webp",
+      image: "https://www.shinerayrj.com.br/wp-content/uploads/2025/02/Storm-200-01.png",
       description: "Potência e estilo para longas viagens"
     }
   ];

@@ -26,7 +26,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#063f5c] mb-1">Endereço</h4>
-                    <p className="text-gray-600">R. Primeiro de Maio, 632<br />Centro - João Lisboa, MA<br />CEP: 65922-000</p>
+                    <p className="text-gray-600">R. Primeiro de Maio, 632<br />CENTRO - João Lisboa, MA<br />CEP: 65922-000</p>
                   </div>
                 </div>
 
@@ -75,15 +75,30 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Mapa */}
+          {/* Mapa do Google Maps */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="h-96 bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin size={48} className="text-[#0485e0] mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-[#063f5c] mb-2">Localização</h3>
-                <p className="text-gray-600">R. Primeiro de Maio, 632</p>
-                <p className="text-gray-600">Centro - João Lisboa, MA</p>
-              </div>
+            <div className="h-96 relative">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.7548916892447!2d-47.4040941!3d-5.4475795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92cf8b0281adcbd3%3A0x245772e7d021198a!2sR.%20Primeiro%20de%20Maio%2C%20632%20-%20CENTRO%2C%20Jo%C3%A3o%20Lisboa%20-%20MA%2C%2065922-000!5e0!3m2!1spt-BR!2sbr!4v1701234567890!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+            <div className="p-4 bg-[#0485e0] text-white text-center">
+              <a
+                href="https://www.google.com/maps/dir//R.+Primeiro+de+Maio,+632+-+CENTRO,+Jo%C3%A3o+Lisboa+-+MA,+65922-000/@-5.4475739,-47.4840071,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x92cf8b0281adcbd3:0x245772e7d021198a!2m2!1d-47.4016051!2d-5.4475795?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:text-gray-200 transition-colors duration-200"
+              >
+                <MapPin size={20} className="mr-2" />
+                Como Chegar
+              </a>
             </div>
           </div>
         </div>

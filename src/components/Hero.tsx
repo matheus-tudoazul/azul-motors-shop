@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -7,16 +6,16 @@ const Hero = () => {
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-      title: "Shineray Phoenix 150"
+      image: "https://www.shineray.com.br/wp-content/uploads/2024/12/Foto-Capa-Titanium.webp",
+      title: "Shineray Titanium"
     },
     {
-      image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-      title: "Shineray Adventure"
+      image: "https://www.shineray.com.br/wp-content/uploads/2024/12/Foto-Capa-250F.webp",
+      title: "Shineray Flash 250F"
     },
     {
-      image: "https://images.unsplash.com/photo-1609893700968-3b48a83dba18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
-      title: "Shineray Sport"
+      image: "https://www.shinerayrj.com.br/wp-content/uploads/2025/02/Storm-200-02.png",
+      title: "Shineray Storm 200"
     }
   ];
 
