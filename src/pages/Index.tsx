@@ -12,7 +12,6 @@ import { toast } from 'sonner';
 const Index = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [customerData, setCustomerData] = useState<CustomerData | null>(null);
 
   const addToCart = (product: Product) => {
     setCartItems(prev => {
@@ -46,18 +45,7 @@ const Index = () => {
     toast.success('Item removido do carrinho!');
   };
 
-  const handleSimulateOrder = () => {
-    setIsCartOpen(false);
-    document.getElementById('simulador')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleCustomerDataSubmit = (data: CustomerData) => {
-    setCustomerData(data);
-    toast.success('Dados salvos! Agora você pode finalizar seu pedido.');
-    setIsCartOpen(true);
-  };
-
-  const generateWhatsAppMessage = () => {
+  const generateWhatsAppMessage = (customerData: CustomerData) => {
     if (cartItems.length === 0) {
       toast.error('Seu carrinho está vazio!');
       return;
@@ -71,15 +59,13 @@ const Index = () => {
 
     let message = `Olá, gostaria de comprar as seguintes motos:\n\n${products}\n\nTotal: R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
 
-    if (customerData) {
-      message += `\n\nDados pessoais:\nNome: ${customerData.fullName}\nNascimento: ${customerData.birthDate}\nCPF: ${customerData.cpf}\nTelefone: ${customerData.phone}\nEndereço: ${customerData.address}\nEmail: ${customerData.email}\nRenda: ${customerData.monthlyIncome}`;
-      
-      if (customerData.downPayment) {
-        message += `\nEntrada: ${customerData.downPayment}`;
-      }
-      
-      message += `\nHabilitado: ${customerData.hasLicense ? 'Sim' : 'Não'}`;
+    message += `\n\nDados pessoais:\nNome: ${customerData.fullName}\nNascimento: ${customerData.birthDate}\nCPF: ${customerData.cpf}\nTelefone: ${customerData.phone}\nEndereço: ${customerData.address}\nEmail: ${customerData.email}\nRenda: ${customerData.monthlyIncome}`;
+    
+    if (customerData.downPayment) {
+      message += `\nEntrada: ${customerData.downPayment}`;
     }
+    
+    message += `\nHabilitado: ${customerData.hasLicense ? 'Sim' : 'Não'}`;
 
     const whatsappUrl = `https://wa.me/5599982780034?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -90,13 +76,9 @@ const Index = () => {
     toast.success('Pedido enviado via WhatsApp!');
   };
 
-  const handleFinalizeOrder = () => {
-    if (!customerData) {
-      toast.error('Por favor, preencha seus dados primeiro no simulador!');
-      handleSimulateOrder();
-      return;
-    }
-    generateWhatsAppMessage();
+  const handleCustomerDataSubmit = (data: CustomerData) => {
+    toast.success('Dados salvos! Agora você pode finalizar seu pedido.');
+    // Não fechar o modal, apenas salvar os dados
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -131,8 +113,7 @@ const Index = () => {
         items={cartItems}
         onUpdateQuantity={updateQuantity}
         onRemoveItem={removeFromCart}
-        onSimulateOrder={handleSimulateOrder}
-        onFinalizeOrder={handleFinalizeOrder}
+        onFinalizeOrder={generateWhatsAppMessage}
       />
     </div>
   );
