@@ -28,14 +28,15 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="w-12 h-12 bg-gradient-to-r from-[#063f5c] to-[#0485e0] rounded-full flex items-center justify-center text-white font-bold text-xl">
-              TM
+           <div className="flex items-center">
+              <div className="w-24 h-24">
+                <img
+                  src="/logo_motors.svg"
+                  alt="Logo Motors"
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
-            <div className="ml-3">
-              <h1 className="text-[#063f5c] font-bold text-lg">Tudo Azul Motors</h1>
-            </div>
-          </div>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-8">

@@ -14,11 +14,12 @@ const Footer = () => {
           {/* Logo e Descrição */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#0485e0] to-white rounded-full flex items-center justify-center text-[#063f5c] font-bold text-xl">
-                TM
-              </div>
-              <div className="ml-3">
-                <h3 className="text-2xl font-bold">Tudo Azul Motors</h3>
+              <div className="w-48 h-48">
+                <img
+                  src="/logo_motors_azul.svg"
+                  alt="Logo Motors"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">

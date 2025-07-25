@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { MapPin, Phone, Clock, Mail, MessageCircle } from 'lucide-react';
+import { FaInstagram } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -72,6 +73,15 @@ const Contact = () => {
                   Falar no WhatsApp
                 </a>
               </div>
+
+              <div className="mt-8 pt-0 border-gray-200"   >
+                 <a href="https://www.instagram.com/grupo.tudoazul/" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"  style={{
+                background: 'linear-gradient(90deg, #405de6, #833ab4, #e1306c)', }}>
+                  <FaInstagram size={20} className="mr-2" />
+                   Nosso Instagram
+                </a>
+              </div>
             </div>
           </div>
 
@@ -124,7 +134,7 @@ const Contact = () => {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/grupo.tudoazul/"
               className="bg-pink-600 hover:bg-pink-700 text-white p-4 rounded-full transition-all duration-200 transform hover:scale-110"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

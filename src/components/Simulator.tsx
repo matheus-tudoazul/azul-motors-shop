@@ -36,7 +36,7 @@ const Simulator: React.FC<SimulatorProps> = ({ onSubmit }) => {
     // Gerar mensagem para o WhatsApp do consórcio
     const message = `Olá, gostaria de simular um consórcio para moto Shineray.\n\nDados pessoais:\nNome: ${formData.fullName}\nNascimento: ${formData.birthDate}\nCPF: ${formData.cpf}\nTelefone: ${formData.phone}\nEndereço: ${formData.address}\nEmail: ${formData.email}\nRenda: ${formData.monthlyIncome}${formData.downPayment ? `\nEntrada: ${formData.downPayment}` : ''}\nHabilitado: ${formData.hasLicense ? 'Sim' : 'Não'}`;
     
-    const whatsappUrl = `https://wa.me/5599985381946?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5599982780060?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     onSubmit(formData);
