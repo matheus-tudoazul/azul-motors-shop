@@ -373,166 +373,191 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
         onMenuClick={() => navigate('/')} 
       />
       
-      <div className="container mx-auto px-4 py-8">
+      <div>
         <Button
           variant="ghost"
           onClick={() => navigate('/')}
-          className="mb-6 hover:bg-gray-100"
+          className="absolute top-20 left-4 z-10 bg-white/80 hover:bg-white/90 backdrop-blur-sm"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Voltar para produtos
+          Voltar
         </Button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-          {/* Imagem principal */}
-          <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-96 object-cover"
-            />
-          </div>
-
-          {/* Informações básicas */}
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h1 className="text-3xl font-bold text-[#063f5c] mb-4">{product.name}</h1>
-            <p className="text-gray-600 text-lg mb-6">{product.description}</p>
-            
-            <div className="text-4xl font-bold text-[#0485e0] mb-6">
-              {formatPrice(product.price)}
-            </div>
-
-            <div className="space-y-4">
-              <Button
-                onClick={() => onAddToCart(product)}
-                className="w-full bg-[#0485e0] hover:bg-[#063f5c] text-white text-lg py-3"
-              >
-                <Plus className="mr-2 h-5 w-5" />
-                Adicionar ao Carrinho
-              </Button>
+        {/* Hero Section com imagem da moto */}
+        <div className="relative h-[70vh] overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+          
+          {/* Overlay com informações */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          
+          {/* Informações sobrepostas */}
+          <div className="absolute bottom-0 left-0 right-0 text-white p-8">
+            <div className="container mx-auto">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4">{product.name}</h1>
+              <p className="text-xl md:text-2xl mb-6 text-gray-200">{product.description}</p>
               
-              <Button
-                variant="outline"
-                className="w-full border-[#0485e0] text-[#0485e0] hover:bg-[#0485e0] hover:text-white"
-                onClick={() => {
-                  const message = `Olá! Tenho interesse na ${product.name}. Gostaria de mais informações.`;
-                  const whatsappUrl = `https://wa.me/5599985381946?text=${encodeURIComponent(message)}`;
-                  window.open(whatsappUrl, '_blank');
-                }}
-              >
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                Consultar Preço
-              </Button>
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                <div className="text-right">
+                  <p className="text-sm text-gray-300 mb-1">A partir de</p>
+                  <div className="text-4xl md:text-5xl font-bold">
+                    {formatPrice(product.price)}
+                  </div>
+                  <p className="text-sm text-gray-300 mt-1">*Preço público sugerido. Frete não incluso</p>
+                </div>
+                
+                <div className="flex gap-4">
+                  <Button
+                    onClick={() => onAddToCart(product)}
+                    className="bg-[#0485e0] hover:bg-[#063f5c] text-white px-8 py-3 text-lg"
+                  >
+                    <Plus className="mr-2 h-5 w-5" />
+                    Adicionar ao Carrinho
+                  </Button>
+                  
+                  <Button
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-black px-8 py-3 text-lg"
+                    onClick={() => {
+                      const message = `Olá! Tenho interesse na ${product.name}. Gostaria de mais informações.`;
+                      const whatsappUrl = `https://wa.me/5599985381946?text=${encodeURIComponent(message)}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                  >
+                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    Consultar Preço
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Tabs com informações detalhadas */}
-        <Card>
-          <CardContent className="p-6">
+        {/* Seção de informações detalhadas */}
+        <div className="container mx-auto px-4 py-12">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <Tabs defaultValue="specs" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="specs">Especificações Técnicas</TabsTrigger>
-                <TabsTrigger value="features">Características</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 bg-gray-50 p-1 rounded-none">
+                <TabsTrigger value="specs" className="text-lg py-4 data-[state=active]:bg-white data-[state=active]:text-[#063f5c]">
+                  Especificações Técnicas
+                </TabsTrigger>
+                <TabsTrigger value="features" className="text-lg py-4 data-[state=active]:bg-white data-[state=active]:text-[#063f5c]">
+                  Características
+                </TabsTrigger>
               </TabsList>
               
-              <TabsContent value="specs" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="font-bold text-[#063f5c] mb-4">Motor</h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Tipo:</span>
-                        <span>{product.specifications.engine}</span>
+              <TabsContent value="specs" className="p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* Motor */}
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-xl font-bold text-[#063f5c] mb-6 border-b border-gray-200 pb-2">
+                      Motor
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Tipo:</span>
+                        <span className="text-gray-900 font-semibold text-right">{product.specifications.engine}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Cilindrada:</span>
-                        <span>{product.specifications.displacement}</span>
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Cilindrada:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.displacement}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Potência:</span>
-                        <span>{product.specifications.power}</span>
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Potência:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.power}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Torque:</span>
-                        <span>{product.specifications.torque}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-[#063f5c] mb-4">Transmissão e Combustível</h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Transmissão:</span>
-                        <span>{product.specifications.transmission}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Combustível:</span>
-                        <span>{product.specifications.fuel}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Consumo:</span>
-                        <span>{product.specifications.consumption}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Tanque:</span>
-                        <span>{product.specifications.tank}</span>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-gray-600 font-medium">Torque:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.torque}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="font-bold text-[#063f5c] mb-4">Dimensões e Peso</h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Peso:</span>
-                        <span>{product.specifications.weight}</span>
+                  {/* Transmissão e Combustível */}
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-xl font-bold text-[#063f5c] mb-6 border-b border-gray-200 pb-2">
+                      Transmissão e Combustível
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Transmissão:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.transmission}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Dimensões:</span>
-                        <span>{product.specifications.dimensions}</span>
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Combustível:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.fuel}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Pneus:</span>
-                        <span>{product.specifications.tires}</span>
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Consumo:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.consumption}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-gray-600 font-medium">Tanque:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.tank}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="font-bold text-[#063f5c] mb-4">Freios e Suspensão</h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Freios:</span>
-                        <span>{product.specifications.brakes}</span>
+                  {/* Dimensões e Peso */}
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-xl font-bold text-[#063f5c] mb-6 border-b border-gray-200 pb-2">
+                      Dimensões e Peso
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Peso:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.weight}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Suspensão:</span>
-                        <span>{product.specifications.suspension}</span>
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Dimensões:</span>
+                        <span className="text-gray-900 font-semibold text-right">{product.specifications.dimensions}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Cores:</span>
-                        <span>{product.specifications.colors.join(', ')}</span>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-gray-600 font-medium">Pneus:</span>
+                        <span className="text-gray-900 font-semibold text-right">{product.specifications.tires}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Freios e Suspensão */}
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-xl font-bold text-[#063f5c] mb-6 border-b border-gray-200 pb-2">
+                      Freios e Suspensão
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Freios:</span>
+                        <span className="text-gray-900 font-semibold text-right">{product.specifications.brakes}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span className="text-gray-600 font-medium">Suspensão:</span>
+                        <span className="text-gray-900 font-semibold text-right">{product.specifications.suspension}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-gray-600 font-medium">Cores disponíveis:</span>
+                        <span className="text-gray-900 font-semibold">{product.specifications.colors.join(', ')}</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </TabsContent>
               
-              <TabsContent value="features" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <TabsContent value="features" className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {product.features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-[#0485e0] rounded-full"></div>
-                      <span>{feature}</span>
+                    <div key={index} className="flex items-center space-x-3 bg-gray-50 rounded-lg p-4">
+                      <div className="w-3 h-3 bg-[#0485e0] rounded-full flex-shrink-0"></div>
+                      <span className="text-gray-800 font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
               </TabsContent>
             </Tabs>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
 
       <Footer />
