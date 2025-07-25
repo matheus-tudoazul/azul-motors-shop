@@ -1,5 +1,6 @@
 import React from 'react';
-import { Plus } from 'lucide-react';
+import { Plus, Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export interface Product {
   id: number;
@@ -103,13 +104,21 @@ const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
               key={product.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden group">
                 <img
                   src={product.image}
                   alt={product.name}
                   className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <Link
+                  to={`/produto/${product.id}`}
+                  className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                >
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                    <Eye size={24} className="text-white" />
+                  </div>
+                </Link>
               </div>
               
               <div className="p-6">
