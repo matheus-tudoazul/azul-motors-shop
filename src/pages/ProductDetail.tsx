@@ -383,8 +383,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
           Voltar
         </Button>
 
-        {/* Hero Section com imagem da moto */}
-        <div className="relative h-[70vh] overflow-hidden">
+        {/* Hero Section com imagem da moto - AUMENTADO */}
+        <div className="relative h-[85vh] overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
@@ -397,13 +397,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
           {/* Informações sobrepostas */}
           <div className="absolute bottom-0 left-0 right-0 text-white p-8">
             <div className="container mx-auto">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4">{product.name}</h1>
-              <p className="text-xl md:text-2xl mb-6 text-gray-200">{product.description}</p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">{product.name}</h1>
+              <p className="text-lg md:text-xl mb-6 text-gray-200">{product.description}</p>
               
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                 <div className="text-right">
                   <p className="text-sm text-gray-300 mb-1">A partir de</p>
-                  <div className="text-4xl md:text-5xl font-bold">
+                  <div className="text-3xl md:text-4xl font-bold">
                     {formatPrice(product.price)}
                   </div>
                   <p className="text-sm text-gray-300 mt-1">*Preço público sugerido. Frete não incluso</p>
@@ -420,7 +420,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
                   
                   <Button
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-black px-8 py-3 text-lg"
+                    className="border-white text-white bg-white/10 hover:bg-white hover:text-black px-8 py-3 text-lg backdrop-blur-sm"
                     onClick={() => {
                       const message = `Olá! Tenho interesse na ${product.name}. Gostaria de mais informações.`;
                       const whatsappUrl = `https://wa.me/5599985381946?text=${encodeURIComponent(message)}`;
@@ -440,11 +440,11 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
         <div className="container mx-auto px-4 py-12">
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <Tabs defaultValue="specs" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-gray-50 p-1 rounded-none">
-                <TabsTrigger value="specs" className="text-lg py-4 data-[state=active]:bg-white data-[state=active]:text-[#063f5c]">
+              <TabsList className="grid w-full grid-cols-2 bg-[#0485e0] p-1 rounded-none">
+                <TabsTrigger value="specs" className="text-lg py-4 text-white data-[state=active]:bg-white data-[state=active]:text-[#063f5c] data-[state=inactive]:bg-[#0485e0] data-[state=inactive]:text-white font-semibold">
                   Especificações Técnicas
                 </TabsTrigger>
-                <TabsTrigger value="features" className="text-lg py-4 data-[state=active]:bg-white data-[state=active]:text-[#063f5c]">
+                <TabsTrigger value="features" className="text-lg py-4 text-white data-[state=active]:bg-white data-[state=active]:text-[#063f5c] data-[state=inactive]:bg-[#0485e0] data-[state=inactive]:text-white font-semibold">
                   Características
                 </TabsTrigger>
               </TabsList>
