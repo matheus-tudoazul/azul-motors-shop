@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import React from "react";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
+import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
 import { Product } from "./components/Products";
 
@@ -36,6 +37,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/produto/:id" element={<ProductDetail onAddToCart={addToCart} />} />
+      <Route path="/depoimentos" element={<Testimonials />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ShoppingCart, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   cartItemsCount: number;
@@ -10,11 +11,13 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClick }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const location = useLocation();
 
   const menuItems = [
     { label: 'Início', section: 'inicio' },
     { label: 'Produtos', section: 'produtos' },
     { label: 'Simulador', section: 'simulador' },
+    { label: 'Depoimentos', href: '/depoimentos' },
     { label: 'Contato', section: 'contato' }
   ];
 
@@ -23,13 +26,24 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
     setIsMenuOpen(false);
   };
 
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      window.location.href = '/';
+    } else {
+      onMenuClick('inicio');
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
            <div className="flex items-center">
-              <div className="w-24 h-24">
+              <div 
+                className="w-24 h-24 cursor-pointer"
+                onClick={handleLogoClick}
+              >
                 <img
                   src="/logo_motors.svg"
                   alt="Logo Motors"
@@ -41,13 +55,23 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
           {/* Desktop Menu */}
           <nav className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => handleMenuClick(item.section)}
-                className="text-[#063f5c] hover:text-[#0485e0] font-medium transition-colors duration-200"
-              >
-                {item.label}
-              </button>
+              item.href ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-[#063f5c] hover:text-[#0485e0] font-medium transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.section}
+                  onClick={() => handleMenuClick(item.section!)}
+                  className="text-[#063f5c] hover:text-[#0485e0] font-medium transition-colors duration-200"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
           </nav>
 
@@ -81,13 +105,24 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
           <div className="md:hidden bg-white border-t border-gray-200">
             <nav className="py-4">
               {menuItems.map((item) => (
-                <button
-                  key={item.section}
-                  onClick={() => handleMenuClick(item.section)}
-                  className="block w-full text-left px-4 py-2 text-[#063f5c] hover:bg-gray-50 transition-colors duration-200"
-                >
-                  {item.label}
-                </button>
+                item.href ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block w-full text-left px-4 py-2 text-[#063f5c] hover:bg-gray-50 transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.section}
+                    onClick={() => handleMenuClick(item.section!)}
+                    className="block w-full text-left px-4 py-2 text-[#063f5c] hover:bg-gray-50 transition-colors duration-200"
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
             </nav>
           </div>
