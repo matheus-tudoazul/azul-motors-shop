@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Play, Truck, Star } from 'lucide-react';
+import Header from '../components/Header';
 
 const Testimonials = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -88,7 +89,16 @@ const Testimonials = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header Spacing */}
+      <Header
+        cartItemsCount={0}
+        onCartClick={() => {}}
+        onMenuClick={(section) => {
+          if (section === 'inicio') {
+            window.location.href = '/';
+          }
+        }}
+      />
+      
       <div className="pt-20">
         
         {/* Testimonials Section */}

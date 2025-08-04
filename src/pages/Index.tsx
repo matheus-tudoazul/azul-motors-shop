@@ -7,6 +7,7 @@ import Cart, { CartItem } from '../components/Cart';
 import Simulator, { CustomerData } from '../components/Simulator';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import AboutUs from '../components/AboutUs';
 import { toast } from 'sonner';
 
 const Index = () => {
@@ -100,6 +101,7 @@ const Index = () => {
       
       <main className="pt-16">
         <Hero />
+        <AboutUs />
         <Products onAddToCart={addToCart} />
         <Simulator onSubmit={handleCustomerDataSubmit} />
         <Contact />

@@ -15,6 +15,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
 
   const menuItems = [
     { label: 'Início', section: 'inicio' },
+    { label: 'Sobre', section: 'sobre' },
     { label: 'Produtos', section: 'produtos' },
     { label: 'Simulador', section: 'simulador' },
     { label: 'Depoimentos', href: '/depoimentos' },
